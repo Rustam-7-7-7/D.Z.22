@@ -14,6 +14,10 @@ class ProductDetailView(DetailView):
 class ContactView(TemplateView):
     template_name = 'catalog/contacts.html'
 
+
+class HomeView(TemplateView):
+    template_name = 'catalog/home.html'
+
 #
 # from django.shortcuts import render
 #
