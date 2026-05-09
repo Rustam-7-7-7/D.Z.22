@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Список статей</h1>
+<ul>
+    {% for post in posts %}
+    <li>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content|truncatechars:100 }}</p>
+        <img src="{{ post.preview.url }}" alt="{{ post.title }}" style="max-width: 150px;">
+        <a href="{% url 'blog_detail' post.pk %}">Читать далее</a>
+        <a href="{% url 'blog_update' post.pk %}">Редактировать</a>
+        <a href="{% url 'blog_delete' post.pk %}">Удалить</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

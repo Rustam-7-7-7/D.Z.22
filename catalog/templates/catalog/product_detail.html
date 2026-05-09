@@ -1,0 +1,9 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<h1>{{ product.name }}</h1>
+<img src="{{ product.image.url }}" alt="{{ product.name }}">
+<p>{{ product.description }}</p>
+<p>Цена: {{ product.purchase_price }}</p>
+<a href="{% url 'home' %}">Назад на главную</a>
+{% endblock %}
