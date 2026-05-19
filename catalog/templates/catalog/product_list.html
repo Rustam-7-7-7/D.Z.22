@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Список продуктов</h1>
+<ul>
+    {% for product in products %}
+    <li>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description|truncatechars:100 }}</p>
+        {% if product.owner == request.user or is_moderator %}
+            <a href="{% url 'product_update' product.pk %}">Редактировать</a>
+            <a href="{% url 'product_delete' product.pk %}">Удалить</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'product_create' %}">Добавить новый продукт</a>
+{% endblock %}
